@@ -376,7 +376,13 @@
 
 - (void)appendString:(NSString *)string
 {
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:string attributes:_attributeStack.cascadedAttributes];
+    
+    
+    
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string attributes:_attributeStack.cascadedAttributes];
+    NSRange rang = [string rangeOfString:@"for"];
+    [attrString addAttributes:@{NSStrokeColorAttributeName: UIColor.redColor} range:rang];
+    
     [_buffer appendAttributedString:attrString];
 }
 
